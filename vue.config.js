@@ -1,4 +1,13 @@
+const path = require("path");
+
 module.exports = {
+    configureWebpack: () => ({
+        resolve: {
+            alias: {
+                "@": path.resolve("./src")
+            }
+        }
+    }),
     chainWebpack: config => {
         const oneOfsMap = config.module.rule('scss').oneOfs.store
         oneOfsMap.forEach(item => {
